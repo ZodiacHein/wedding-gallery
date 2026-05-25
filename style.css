@@ -1,0 +1,19 @@
+body{
+    font-family: Arial;
+    background:#fffaf5;
+    text-align:center;
+}
+
+.hero{
+    margin-top:50px;
+}
+
+h1{
+    color:#c59d5f;
+}
+
+img{
+    width:200px;
+    margin:10px;
+    border-radius:10px;
+}
