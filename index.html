@@ -1,21 +1,136 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Wedding Gallery</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Aung ❤️ May Wedding</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:Poppins;
+    background:#fffaf5;
+    text-align:center;
+    color:#333;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+    url("images/1.jpg") center/cover;
+    height:70vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.hero h1{
+    font-family:"Great Vibes";
+    font-size:60px;
+    margin:0;
+}
+
+.hero p{
+    font-size:18px;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:10px;
+    padding:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:12px;
+    transition:0.3s;
+    cursor:pointer;
+}
+
+.gallery img:hover{
+    transform:scale(1.05);
+}
+
+/* FOOTER */
+footer{
+    padding:20px;
+    font-size:14px;
+    color:#777;
+}
+
+/* LIGHTBOX */
+#lightbox{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+}
+
+#lightbox img{
+    max-width:90%;
+    max-height:80%;
+    border-radius:10px;
+}
+</style>
 </head>
+
 <body>
 
+<!-- HERO -->
 <div class="hero">
     <h1>Aung ❤️ May</h1>
-    <p>Welcome To Our Wedding</p>
-
-    <input type="file" id="upload" multiple>
-
-    <div id="gallery"></div>
+    <p>Wedding Memories</p>
 </div>
 
-<script src="script.js"></script>
+<h2 style="margin-top:20px;">Our Beautiful Moments</h2>
+
+<!-- GALLERY -->
+<div class="gallery">
+    <img src="images/1.jpg">
+    <img src="images/2.jpg">
+    <img src="images/3.jpg">
+    <img src="images/4.jpg">
+    <img src="images/5.jpg">
+    <img src="images/6.jpg">
+    <img src="images/7.jpg">
+    <!-- <img src="images/8.jpg">
+    <img src="images/9.jpg">
+    <img src="images/10.jpg"> -->
+</div>
+
+<!-- FOOTER -->
+<footer>
+💛 Thank you for celebrating with us 💛
+</footer>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="this.style.display='none'">
+    <img id="lightboxImg">
+</div>
+
+<script>
+const images = document.querySelectorAll(".gallery img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+
+images.forEach(img=>{
+    img.onclick = ()=>{
+        lightbox.style.display="flex";
+        lightboxImg.src = img.src;
+    }
+});
+</script>
 
 </body>
 </html>
